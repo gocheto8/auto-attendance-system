@@ -1,0 +1,49 @@
+version: "3.8"
+services:
+  rabbitmq:
+    image: rabbitmq:3-management-alpine
+    container_name: 'rabbitmq'
+    ports:
+        - 5672:5672
+        - 15672:15672
+    volumes:
+        - .docker-data/rabbitmq/data/:/var/lib/rabbitmq/
+        - .docker-data/rabbitmq/log/:/var/log/rabbitmq
+    networks:
+        - aas-net
+  
+  postgres:
+    container_name: postgres
+    image: postgres
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-123456789}
+      PGDATA: /data/postgres
+    volumes:
+       - .docker-data/postgres:/data/postgres
+    ports:
+      - "5432:5432"
+    networks:
+      - aas-net
+    restart: unless-stopped
+  
+  pgadmin:
+    container_name: pgadmin
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL:-admin@k.com}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD:-admin}
+      PGADMIN_CONFIG_SERVER_MODE: 'False'
+    volumes:
+       - .docker-data/pgadmin:/var/lib/pgadmin
+
+    ports:
+      - "${PGADMIN_PORT:-5050}:80"
+    networks:
+      - aas-net
+    restart: unless-stopped
+
+
+networks:
+  aas-net:
+    driver: bridge
