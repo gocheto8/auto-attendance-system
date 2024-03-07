@@ -298,3 +298,72 @@ INFO       2024-03-06 19:39:21,088 pika.connection _on_stream_terminated 2017: A
 INFO       2024-03-06 19:39:21,089 pika.connection _on_stream_terminated 2086: Stack terminated due to ConnectionClosedByBroker: (320) "CONNECTION_FORCED - broker forced connection closure with reason 'shutdown'"
 INFO       2024-03-06 19:39:21,089 pika.adapters.utils.io_services_utils _close_and_finalize 882 : Closing transport socket and unlinking: state=3; <socket.socket fd=8, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 34538), raddr=('127.0.0.1', 5672)>
 ERROR      2024-03-06 19:39:21,089 pika.adapters.blocking_connection _flush_output 521 : Unexpected connection close detected: ConnectionClosedByBroker: (320) "CONNECTION_FORCED - broker forced connection closure with reason 'shutdown'"
+INFO       2024-03-07 18:45:25,972 __main__ <module> 54  : Recognizer service is starting...
+INFO       2024-03-07 18:45:25,980 pika.adapters.utils.connection_workflow start 179 : Pika version 1.3.2 connecting to ('127.0.0.1', 5672)
+INFO       2024-03-07 18:45:25,982 pika.adapters.utils.io_services_utils _on_writable 345 : Socket connected: <socket.socket fd=8, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 44268), raddr=('127.0.0.1', 5672)>
+INFO       2024-03-07 18:45:25,984 pika.adapters.utils.connection_workflow _on_transport_establishment_done 428 : Streaming transport linked up: (<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7fb7ce6476a0>, _StreamingProtocolShim: <SelectConnection PROTOCOL transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7fb7ce6476a0> params=<ConnectionParameters host=localhost port=5672 virtual_host=/ ssl=False>>).
+INFO       2024-03-07 18:45:25,993 pika.adapters.utils.connection_workflow _report_completion_and_cleanup 293 : AMQPConnector - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7fb7ce6476a0> params=<ConnectionParameters host=localhost port=5672 virtual_host=/ ssl=False>>
+INFO       2024-03-07 18:45:25,994 pika.adapters.utils.connection_workflow _report_completion_and_cleanup 725 : AMQPConnectionWorkflow - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7fb7ce6476a0> params=<ConnectionParameters host=localhost port=5672 virtual_host=/ ssl=False>>
+INFO       2024-03-07 18:45:25,994 pika.adapters.blocking_connection _create_connection 453 : Connection workflow succeeded: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7fb7ce6476a0> params=<ConnectionParameters host=localhost port=5672 virtual_host=/ ssl=False>>
+INFO       2024-03-07 18:45:25,995 pika.adapters.blocking_connection __init__ 1264: Created channel=1
+INFO       2024-03-07 18:45:31,038 __main__ <module> 69  : Connection established.
+INFO       2024-03-07 18:46:41,955 pika.adapters.blocking_connection close 802 : Closing connection (200): Normal shutdown
+INFO       2024-03-07 18:46:41,957 pika.channel close 536 : Closing channel (200): 'Normal shutdown' on <Channel number=1 OPEN conn=<SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7fb7ce6476a0> params=<ConnectionParameters host=localhost port=5672 virtual_host=/ ssl=False>>>
+INFO       2024-03-07 18:46:41,958 pika.channel _on_closeok 1133: Received <Channel.CloseOk> on <Channel number=1 CLOSING conn=<SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7fb7ce6476a0> params=<ConnectionParameters host=localhost port=5672 virtual_host=/ ssl=False>>>
+INFO       2024-03-07 18:46:41,959 pika.connection close 1316: Closing connection (200): 'Normal shutdown'
+INFO       2024-03-07 18:46:41,960 pika.adapters.utils.io_services_utils abort 731 : Aborting transport connection: state=1; <socket.socket fd=8, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 44268), raddr=('127.0.0.1', 5672)>
+INFO       2024-03-07 18:46:41,960 pika.adapters.utils.io_services_utils _initiate_abort 904 : _AsyncTransportBase._initate_abort(): Initiating abrupt asynchronous transport shutdown: state=1; error=None; <socket.socket fd=8, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 44268), raddr=('127.0.0.1', 5672)>
+INFO       2024-03-07 18:46:41,960 pika.adapters.utils.io_services_utils _deactivate 869 : Deactivating transport: state=1; <socket.socket fd=8, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 44268), raddr=('127.0.0.1', 5672)>
+INFO       2024-03-07 18:46:41,961 pika.connection _on_stream_terminated 2017: AMQP stack terminated, failed to connect, or aborted: opened=True, error-arg=None; pending-error=ConnectionClosedByClient: (200) 'Normal shutdown'
+INFO       2024-03-07 18:46:41,961 pika.connection _on_stream_terminated 2086: Stack terminated due to ConnectionClosedByClient: (200) 'Normal shutdown'
+INFO       2024-03-07 18:46:41,961 pika.adapters.utils.io_services_utils _close_and_finalize 882 : Closing transport socket and unlinking: state=3; <socket.socket fd=8, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 44268), raddr=('127.0.0.1', 5672)>
+INFO       2024-03-07 18:46:41,961 pika.adapters.blocking_connection _flush_output 525 : User-initiated close: result=BlockingConnection__OnClosedArgs(connection=<SelectConnection CLOSED transport=None params=<ConnectionParameters host=localhost port=5672 virtual_host=/ ssl=False>>, error=ConnectionClosedByClient: (200) 'Normal shutdown')
+INFO       2024-03-07 18:46:41,962 __main__ <module> 76  : Connection closed. Application closing.
+INFO       2024-03-07 18:46:52,613 __main__ <module> 54  : Recognizer service is starting...
+INFO       2024-03-07 18:46:52,615 pika.adapters.utils.connection_workflow start 179 : Pika version 1.3.2 connecting to ('127.0.0.1', 5672)
+INFO       2024-03-07 18:46:52,615 pika.adapters.utils.io_services_utils _on_writable 345 : Socket connected: <socket.socket fd=8, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 38504), raddr=('127.0.0.1', 5672)>
+INFO       2024-03-07 18:46:52,615 pika.adapters.utils.connection_workflow _on_transport_establishment_done 428 : Streaming transport linked up: (<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f19f83a9fc0>, _StreamingProtocolShim: <SelectConnection PROTOCOL transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f19f83a9fc0> params=<ConnectionParameters host=localhost port=5672 virtual_host=/ ssl=False>>).
+INFO       2024-03-07 18:46:52,619 pika.adapters.utils.connection_workflow _report_completion_and_cleanup 293 : AMQPConnector - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f19f83a9fc0> params=<ConnectionParameters host=localhost port=5672 virtual_host=/ ssl=False>>
+INFO       2024-03-07 18:46:52,619 pika.adapters.utils.connection_workflow _report_completion_and_cleanup 725 : AMQPConnectionWorkflow - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f19f83a9fc0> params=<ConnectionParameters host=localhost port=5672 virtual_host=/ ssl=False>>
+INFO       2024-03-07 18:46:52,619 pika.adapters.blocking_connection _create_connection 453 : Connection workflow succeeded: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x7f19f83a9fc0> params=<ConnectionParameters host=localhost port=5672 virtual_host=/ ssl=False>>
+INFO       2024-03-07 18:46:52,619 pika.adapters.blocking_connection __init__ 1264: Created channel=1
+INFO       2024-03-07 18:46:57,630 __main__ <module> 69  : Connection established.
+INFO       2024-03-07 18:48:09,117 __main__ recognize 38  : Recognized person with id 0 and distance 23.649677276611328
+INFO       2024-03-07 18:48:09,118 __main__ recognize 38  : Recognized person with id 3 and distance 17.009132385253906
+INFO       2024-03-07 18:48:09,478 __main__ recognize 38  : Recognized person with id 3 and distance 16.173198699951172
+INFO       2024-03-07 18:48:09,932 __main__ recognize 38  : Recognized person with id 3 and distance 23.42035484313965
+INFO       2024-03-07 18:48:09,932 __main__ recognize 38  : Recognized person with id 3 and distance 15.938094139099121
+INFO       2024-03-07 18:48:10,374 __main__ recognize 38  : Recognized person with id 3 and distance 15.414314270019531
+INFO       2024-03-07 18:48:10,782 __main__ recognize 38  : Recognized person with id 3 and distance 15.674887657165527
+INFO       2024-03-07 18:48:10,783 __main__ recognize 38  : Recognized person with id 3 and distance 23.356904983520508
+INFO       2024-03-07 18:48:11,308 __main__ recognize 38  : Recognized person with id 3 and distance 16.982444763183594
+INFO       2024-03-07 18:48:11,907 __main__ recognize 38  : Recognized person with id 3 and distance 16.713560104370117
+INFO       2024-03-07 18:48:11,907 __main__ recognize 38  : Recognized person with id 3 and distance 23.32732391357422
+INFO       2024-03-07 18:48:12,268 __main__ recognize 38  : Recognized person with id 3 and distance 18.946834564208984
+INFO       2024-03-07 18:48:12,795 __main__ recognize 38  : Recognized person with id 3 and distance 16.260669708251953
+INFO       2024-03-07 18:48:12,795 __main__ recognize 38  : Recognized person with id 3 and distance 23.326457977294922
+INFO       2024-03-07 18:48:13,279 __main__ recognize 38  : Recognized person with id 3 and distance 15.0004243850708
+INFO       2024-03-07 18:48:13,279 __main__ recognize 38  : Recognized person with id 3 and distance 23.347375869750977
+INFO       2024-03-07 18:48:13,846 __main__ recognize 38  : Recognized person with id 3 and distance 16.992231369018555
+INFO       2024-03-07 18:48:13,846 __main__ recognize 38  : Recognized person with id 3 and distance 23.306074142456055
+INFO       2024-03-07 18:48:14,413 __main__ recognize 38  : Recognized person with id 3 and distance 15.055808067321777
+INFO       2024-03-07 18:48:14,414 __main__ recognize 38  : Recognized person with id 3 and distance 23.306509017944336
+INFO       2024-03-07 18:48:14,972 __main__ recognize 38  : Recognized person with id 3 and distance 14.980551719665527
+INFO       2024-03-07 18:48:15,464 __main__ recognize 38  : Recognized person with id 3 and distance 15.086167335510254
+INFO       2024-03-07 18:48:15,464 __main__ recognize 38  : Recognized person with id 3 and distance 23.521007537841797
+INFO       2024-03-07 18:48:16,068 __main__ recognize 38  : Recognized person with id 3 and distance 15.070852279663086
+INFO       2024-03-07 18:48:16,068 __main__ recognize 38  : Recognized person with id 3 and distance 23.497243881225586
+INFO       2024-03-07 18:48:16,655 __main__ recognize 38  : Recognized person with id 3 and distance 16.243425369262695
+INFO       2024-03-07 18:48:16,655 __main__ recognize 38  : Recognized person with id 3 and distance 23.437339782714844
+INFO       2024-03-07 18:48:17,026 __main__ recognize 38  : Recognized person with id 3 and distance 15.60441780090332
+INFO       2024-03-07 18:48:17,520 __main__ recognize 38  : Recognized person with id 3 and distance 15.937597274780273
+INFO       2024-03-07 18:48:17,520 __main__ recognize 38  : Recognized person with id 3 and distance 23.212032318115234
+INFO       2024-03-07 18:48:17,960 __main__ recognize 38  : Recognized person with id 3 and distance 16.097938537597656
+INFO       2024-03-07 18:48:17,961 __main__ recognize 38  : Recognized person with id 3 and distance 23.447702407836914
+INFO       2024-03-07 19:45:07,072 pika.adapters.utils.io_services_utils abort 731 : Aborting transport connection: state=1; <socket.socket fd=8, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 38504), raddr=('127.0.0.1', 5672)>
+INFO       2024-03-07 19:45:07,072 pika.adapters.utils.io_services_utils _initiate_abort 904 : _AsyncTransportBase._initate_abort(): Initiating abrupt asynchronous transport shutdown: state=1; error=None; <socket.socket fd=8, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 38504), raddr=('127.0.0.1', 5672)>
+INFO       2024-03-07 19:45:07,072 pika.adapters.utils.io_services_utils _deactivate 869 : Deactivating transport: state=1; <socket.socket fd=8, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 38504), raddr=('127.0.0.1', 5672)>
+INFO       2024-03-07 19:45:07,073 pika.connection _on_stream_terminated 2017: AMQP stack terminated, failed to connect, or aborted: opened=True, error-arg=None; pending-error=ConnectionClosedByBroker: (320) "CONNECTION_FORCED - broker forced connection closure with reason 'shutdown'"
+INFO       2024-03-07 19:45:07,073 pika.connection _on_stream_terminated 2086: Stack terminated due to ConnectionClosedByBroker: (320) "CONNECTION_FORCED - broker forced connection closure with reason 'shutdown'"
+INFO       2024-03-07 19:45:07,073 pika.adapters.utils.io_services_utils _close_and_finalize 882 : Closing transport socket and unlinking: state=3; <socket.socket fd=8, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 38504), raddr=('127.0.0.1', 5672)>
+ERROR      2024-03-07 19:45:07,073 pika.adapters.blocking_connection _flush_output 521 : Unexpected connection close detected: ConnectionClosedByBroker: (320) "CONNECTION_FORCED - broker forced connection closure with reason 'shutdown'"
