@@ -10,10 +10,10 @@ import (
 )
 
 type MessageBody struct {
-	Id        string  `json:"id"`
-	Timestamp float64 `json:"time"`
-	Person_id uint8   `json:"person_id"`
-	Distance  float32 `json:"distance"`
+	Id        string    `json:"id"`
+	Timestamp time.Time `json:"time"`
+	Person_id string    `json:"person_id"`
+	Distance  float32   `json:"distance"`
 }
 
 var db *sql.DB
@@ -42,24 +42,25 @@ AND (
 WHERE
 $2 > CCO.start_time
 AND $2 < CCO.end_time
-AND "$3 = CCO.room;`
+AND $3 = CCO.room;`
 
 var occasionStmt *sql.Stmt
 
 const insertRecordQuery string = `INSERT INTO
-Record (student_id, occasion_id, timestamp)
+Record (student_id, occasion_id, timestamp, distance)
 VALUES
 (
 	$1,
 	$2,
-	$3
+	$3,
+	$4
 );`
 
 var insertRecordStmt *sql.Stmt
 
 func ConnectToDb() {
 	mu.Lock()
-	connStr := "postgres://postgres:123456789@localhost/aas_db"
+	connStr := "postgres://postgres:123456789@localhost/aas_db?sslmode=disable"
 	var err error
 	db, err = sql.Open("postgres", connStr)
 	if err != nil {
@@ -88,34 +89,25 @@ func secondsSinceBeginningOfWeek(timestamp time.Time) int {
 	return seconds
 }
 
-func parseTimestamp(timestamp float64) time.Time {
-	seconds := int64(timestamp)
-	fractionalSeconds := int64((timestamp - float64(seconds)) * 1e9)
-	parsedTime := time.Unix(seconds, fractionalSeconds)
-
-	return parsedTime
-}
-
 func GetCourseOccasion(body *MessageBody) (int, error) {
-	pt := parseTimestamp(body.Timestamp)
 
-	seconds := secondsSinceBeginningOfWeek(pt)
-	var occasion_id *int
+	seconds := secondsSinceBeginningOfWeek(body.Timestamp)
+	var occasion_id int = 0
 	mu.Lock()
 	err := occasionStmt.QueryRow(body.Person_id, seconds, body.Id).Scan(&occasion_id)
-	if err != nil {
-		log.Println(err)
-	}
 	mu.Unlock()
-	return *occasion_id
+	if err != nil {
+		return -1, err
+	}
+	return occasion_id, nil
 }
 
-func InsertRecord(body *MessageBody, occasion_id int) *sql.Result {
+func InsertRecord(body *MessageBody, occasion_id int) error {
 	mu.Lock()
-	result, err := insertRecordStmt.Exec(body.Person_id, occasion_id, body.Timestamp, body.Distance)
-	if err != nil {
-		log.Fatal(err)
-	}
+	_, err := insertRecordStmt.Exec(body.Person_id, occasion_id, body.Timestamp, body.Distance)
 	mu.Unlock()
-	return &result
+	if err != nil {
+		return err
+	}
+	return nil
 }

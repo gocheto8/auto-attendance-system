@@ -42,7 +42,7 @@ func main() {
 		signal.Notify(sigs, syscall.SIGINT, syscall.SIGTERM)
 		sig := <-sigs
 		fmt.Println()
-        log.Println(sig)
+		log.Println(sig)
 	}
 
 	log.Printf("shutting down")
@@ -75,6 +75,8 @@ func NewConsumer(amqpURI, exchange, exchangeType, queueName, key, ctag string) (
 		return nil, fmt.Errorf("dial: %s", err)
 	}
 
+	ConnectToDb()
+
 	go func() {
 		fmt.Printf("closing: %s", <-c.conn.NotifyClose(make(chan *amqp.Error)))
 	}()
@@ -101,7 +103,7 @@ func NewConsumer(amqpURI, exchange, exchangeType, queueName, key, ctag string) (
 	log.Printf("declared Exchange, declaring Queue %q", queueName)
 	queue, err := c.channel.QueueDeclare(
 		queueName, // name of the queue
-		false,      // durable
+		false,     // durable
 		false,     // delete when unused
 		false,     // exclusive
 		false,     // noWait
@@ -163,13 +165,23 @@ func handle(deliveries <-chan amqp.Delivery, done chan error) {
 	for d := range deliveries {
 		var body MessageBody
 		err := json.Unmarshal(d.Body, &body)
-		if  err != nil {
+		if err != nil {
 			log.Printf("Failed to unmarshal JSON: %v", err)
-			return
+			done <- err
 		}
-		occasion_id := GetCourseOccasion(&body)
-		go InsertRecord(&body, occasion_id)
-		
+		occasion_id, err := GetCourseOccasion(&body)
+		if err != nil {
+			log.Println(err)
+
+		} else {
+			go func() {
+				err := InsertRecord(&body, occasion_id)
+				if err != nil {
+					log.Println(err)
+					done <- err
+				}
+			}()
+		}
 		d.Ack(true)
 	}
 	log.Printf("handle: deliveries channel closed")

@@ -23,7 +23,8 @@ if gpus:
 # Open the webcam
 cap = cv2.VideoCapture(0)
 
-DEVICE_ID = f'class{os. getpid()}'
+# DEVICE_ID = f'class{os. getpid()}'
+DEVICE_ID = 'room201'
 
 
 def publish_embedding(embedding) -> None:

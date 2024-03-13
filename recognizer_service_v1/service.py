@@ -1,3 +1,4 @@
+import datetime
 import json
 import logging
 import os
@@ -40,8 +41,10 @@ def recognize(channel, method_frame, header_frame, body) -> None:
         return
     
     del data['embedding']
-    data["person_id"] = index[0][0]
+    data["person_id"] = f"{index[0][0]:05}"
     data["distance"] = dist
+    dt_object = datetime.datetime.fromtimestamp(data['time'])
+    data["time"] = dt_object.strftime('%Y-%m-%dT%H:%M:%SZ')
     body = json.dumps(data)
     channel.basic_publish(
         EXCHANGE, RESULT_ROUTING_KEY, body,
