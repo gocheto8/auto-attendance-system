@@ -28,10 +28,15 @@ func init() {
 }
 
 func main() {
+
 	c, err := NewConsumer(*uri, *exchange, *exchangeType, *queue, *bindingKey, *consumerTag)
 	if err != nil {
 		log.Fatalf("%s", err)
 	}
+
+	close_chan := make(chan string)
+	ConnectToDb(close_chan)
+	InitCache(0, close_chan)
 
 	if *lifetime > 0 {
 		log.Printf("running for %s", *lifetime)
@@ -46,6 +51,8 @@ func main() {
 	}
 
 	log.Printf("shutting down")
+
+	close_chan <- "shutting down"
 
 	if err := c.Shutdown(); err != nil {
 		log.Fatalf("error during shutdown: %s", err)
@@ -74,8 +81,6 @@ func NewConsumer(amqpURI, exchange, exchangeType, queueName, key, ctag string) (
 	if err != nil {
 		return nil, fmt.Errorf("dial: %s", err)
 	}
-
-	ConnectToDb()
 
 	go func() {
 		fmt.Printf("closing: %s", <-c.conn.NotifyClose(make(chan *amqp.Error)))
@@ -166,23 +171,34 @@ func handle(deliveries <-chan amqp.Delivery, done chan error) {
 		var body MessageBody
 		err := json.Unmarshal(d.Body, &body)
 		if err != nil {
-			log.Printf("Failed to unmarshal JSON: %v", err)
+			log.Printf("Failed to unmarshal JSON: %v\n", err)
 			done <- err
 		}
+
+		last_seen_time := cache_get(body.Person_id)
+		if last_seen_time != nil {
+			log.Printf("student was last seen %s\n", last_seen_time.Format(time.RFC3339))
+			d.Ack(true)
+			done <- nil
+		}
+
 		occasion_id, err := GetCourseOccasion(&body)
 		if err != nil {
 			log.Println(err)
-
-		} else {
-			go func() {
-				err := InsertRecord(&body, occasion_id)
-				if err != nil {
-					log.Println(err)
-					done <- err
-				}
-			}()
+			d.Ack(false)
+			done <- nil
 		}
-		d.Ack(true)
+		go func() {
+			cache_set(body.Person_id, body.Timestamp)
+
+			err := InsertRecord(&body, occasion_id)
+			if err != nil {
+				log.Println(err)
+				done <- err
+			}
+		}()
+
+		d.Ack(false)
 	}
 	log.Printf("handle: deliveries channel closed")
 	done <- nil

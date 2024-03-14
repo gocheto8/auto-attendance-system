@@ -58,7 +58,7 @@ VALUES
 
 var insertRecordStmt *sql.Stmt
 
-func ConnectToDb() {
+func ConnectToDb(close_chan chan string) {
 	mu.Lock()
 	connStr := "postgres://postgres:123456789@localhost/aas_db?sslmode=disable"
 	var err error
@@ -80,6 +80,15 @@ func ConnectToDb() {
 
 	log.Println("Finished preparing statements.")
 	mu.Unlock()
+
+	go func() {
+		reason := <-close_chan
+		log.Printf("Db connection closing r: %s\n", reason)
+		err := db.Close()
+		if err != nil {
+			log.Println("Error on db shutdown", err)
+		}
+	}()
 }
 
 func secondsSinceBeginningOfWeek(timestamp time.Time) int {
