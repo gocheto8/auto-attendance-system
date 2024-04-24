@@ -12,13 +12,13 @@ import (
 
 var ctx context.Context = context.Background()
 var rdb *redis.Client
-var courseStartTimes [16]time.Time
+var courseStartTimes [12]time.Time
 
 func InitCache(db uint8, closeChan chan string) {
-	rdb := redis.NewClient(&redis.Options{
+	rdb = redis.NewClient(&redis.Options{
 		Addr:     "localhost:6379",
-		Password: "123456789", // no password set
-		DB:       0,           // use default DB
+		Password: "123456789",
+		DB:       0,
 	})
 	log.Printf("Redis connection ready on db#%d\n", db)
 
@@ -32,23 +32,21 @@ func InitCache(db uint8, closeChan chan string) {
 	go purge_job()
 }
 
-func cache_get(student_id string) *time.Time {
+func Cache_get(student_id string) (*time.Time, error) {
 	timestamp, err := rdb.Get(ctx, student_id).Result()
-	if err == redis.Nil {
-		return nil
-	} else if err != nil {
-		log.Fatal(err)
+	if err != nil {
+		return nil, err
 	}
 	parsedtime, err := time.Parse(time.RFC3339, timestamp)
 	if err != nil {
 		log.Fatal("time parse fail", err)
 	}
-	return &parsedtime
+	return &parsedtime, nil
 }
 
-func cache_set(student_id string, last_seen time.Time) {
+func Cache_set(student_id string, last_seen time.Time) {
 	timestamp := last_seen.Format(time.RFC3339)
-	err := rdb.Set(ctx, student_id, timestamp, 0)
+	err := rdb.Set(ctx, student_id, timestamp, 0).Err()
 	if err != nil {
 		log.Fatal("Save to cache failed", err)
 	}

@@ -658,3 +658,249 @@ INFO       2024-03-13 21:18:00,863 pika.connection _on_stream_terminated 2086: S
 INFO       2024-03-13 21:18:00,863 pika.adapters.utils.io_services_utils _close_and_finalize 882 : Closing transport socket and unlinking: state=3; <socket.socket fd=8, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 42510), raddr=('127.0.0.1', 5672)>
 INFO       2024-03-13 21:18:00,863 pika.adapters.blocking_connection _flush_output 525 : User-initiated close: result=BlockingConnection__OnClosedArgs(connection=<SelectConnection CLOSED transport=None params=<ConnectionParameters host=localhost port=5672 virtual_host=/ ssl=False>>, error=ConnectionClosedByClient: (200) 'Normal shutdown')
 INFO       2024-03-13 21:18:00,863 __main__ <module> 79  : Connection closed. Application closing.
+INFO       2024-03-19 19:22:47,045 __main__ <module> 68  : Recognizer service is starting...
+INFO       2024-03-19 19:22:47,049 pika.adapters.utils.connection_workflow start 179 : Pika version 1.3.2 connecting to ('127.0.0.1', 5672)
+INFO       2024-03-19 19:22:47,049 pika.adapters.utils.io_services_utils _on_writable 345 : Socket connected: <socket.socket fd=8, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 42476), raddr=('127.0.0.1', 5672)>
+INFO       2024-03-19 19:22:47,050 pika.adapters.utils.connection_workflow _on_transport_establishment_done 428 : Streaming transport linked up: (<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x74827a2d5f00>, _StreamingProtocolShim: <SelectConnection PROTOCOL transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x74827a2d5f00> params=<ConnectionParameters host=localhost port=5672 virtual_host=/ ssl=False>>).
+INFO       2024-03-19 19:22:47,054 pika.adapters.utils.connection_workflow _report_completion_and_cleanup 293 : AMQPConnector - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x74827a2d5f00> params=<ConnectionParameters host=localhost port=5672 virtual_host=/ ssl=False>>
+INFO       2024-03-19 19:22:47,054 pika.adapters.utils.connection_workflow _report_completion_and_cleanup 725 : AMQPConnectionWorkflow - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x74827a2d5f00> params=<ConnectionParameters host=localhost port=5672 virtual_host=/ ssl=False>>
+INFO       2024-03-19 19:22:47,055 pika.adapters.blocking_connection _create_connection 453 : Connection workflow succeeded: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x74827a2d5f00> params=<ConnectionParameters host=localhost port=5672 virtual_host=/ ssl=False>>
+INFO       2024-03-19 19:22:47,055 pika.adapters.blocking_connection __init__ 1264: Created channel=1
+INFO       2024-03-19 19:22:52,075 __main__ <module> 85  : Connection established.
+INFO       2024-03-19 19:31:27,727 __main__ <module> 68  : Recognizer service is starting...
+INFO       2024-03-19 19:31:27,729 pika.adapters.utils.connection_workflow start 179 : Pika version 1.3.2 connecting to ('127.0.0.1', 5672)
+INFO       2024-03-19 19:31:27,729 pika.adapters.utils.io_services_utils _on_writable 345 : Socket connected: <socket.socket fd=8, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 40692), raddr=('127.0.0.1', 5672)>
+INFO       2024-03-19 19:31:27,729 pika.adapters.utils.connection_workflow _on_transport_establishment_done 428 : Streaming transport linked up: (<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x79b47c1d9f00>, _StreamingProtocolShim: <SelectConnection PROTOCOL transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x79b47c1d9f00> params=<ConnectionParameters host=localhost port=5672 virtual_host=/ ssl=False>>).
+INFO       2024-03-19 19:31:27,733 pika.adapters.utils.connection_workflow _report_completion_and_cleanup 293 : AMQPConnector - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x79b47c1d9f00> params=<ConnectionParameters host=localhost port=5672 virtual_host=/ ssl=False>>
+INFO       2024-03-19 19:31:27,733 pika.adapters.utils.connection_workflow _report_completion_and_cleanup 725 : AMQPConnectionWorkflow - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x79b47c1d9f00> params=<ConnectionParameters host=localhost port=5672 virtual_host=/ ssl=False>>
+INFO       2024-03-19 19:31:27,733 pika.adapters.blocking_connection _create_connection 453 : Connection workflow succeeded: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x79b47c1d9f00> params=<ConnectionParameters host=localhost port=5672 virtual_host=/ ssl=False>>
+INFO       2024-03-19 19:31:27,733 pika.adapters.blocking_connection __init__ 1264: Created channel=1
+INFO       2024-03-19 19:31:32,739 __main__ <module> 85  : Connection established.
+INFO       2024-03-19 19:33:05,255 __main__ recognize 47  : Recognized person with id 0 and distance 22.818004608154297
+INFO       2024-03-19 19:33:05,503 __main__ recognize 47  : Recognized person with id 0 and distance 22.50346565246582
+INFO       2024-03-19 19:33:05,748 __main__ recognize 47  : Recognized person with id 0 and distance 22.457963943481445
+INFO       2024-03-19 19:33:06,004 __main__ recognize 47  : Recognized person with id 0 and distance 22.463747024536133
+INFO       2024-03-19 19:33:06,261 __main__ recognize 47  : Recognized person with id 0 and distance 22.41929817199707
+INFO       2024-03-19 19:33:06,506 __main__ recognize 47  : Recognized person with id 3 and distance 22.947885513305664
+INFO       2024-03-19 19:33:06,748 __main__ recognize 47  : Recognized person with id 3 and distance 18.114282608032227
+INFO       2024-03-19 19:33:06,988 __main__ recognize 47  : Recognized person with id 3 and distance 19.569137573242188
+INFO       2024-03-19 19:33:07,230 __main__ recognize 47  : Recognized person with id 3 and distance 19.295318603515625
+INFO       2024-03-19 19:33:07,473 __main__ recognize 47  : Recognized person with id 3 and distance 20.246313095092773
+INFO       2024-03-19 19:33:07,722 __main__ recognize 47  : Recognized person with id 3 and distance 22.87506103515625
+INFO       2024-03-19 19:33:07,971 __main__ recognize 47  : Recognized person with id 3 and distance 19.017051696777344
+INFO       2024-03-19 19:33:08,213 __main__ recognize 47  : Recognized person with id 3 and distance 21.67439079284668
+INFO       2024-03-19 19:33:08,459 __main__ recognize 47  : Recognized person with id 3 and distance 20.386430740356445
+INFO       2024-03-19 19:33:08,707 __main__ recognize 47  : Recognized person with id 3 and distance 19.502416610717773
+INFO       2024-03-19 19:33:08,953 __main__ recognize 47  : Recognized person with id 3 and distance 18.299739837646484
+INFO       2024-03-19 19:33:09,193 __main__ recognize 47  : Recognized person with id 3 and distance 20.93065643310547
+INFO       2024-03-19 19:33:09,437 __main__ recognize 47  : Recognized person with id 3 and distance 20.86293601989746
+INFO       2024-03-19 19:33:09,684 __main__ recognize 47  : Recognized person with id 3 and distance 19.164541244506836
+INFO       2024-03-19 19:33:09,931 __main__ recognize 47  : Recognized person with id 3 and distance 17.5930233001709
+INFO       2024-03-19 19:33:10,182 __main__ recognize 47  : Recognized person with id 3 and distance 18.0582275390625
+INFO       2024-03-19 19:33:10,432 __main__ recognize 47  : Recognized person with id 3 and distance 24.55498695373535
+INFO       2024-03-19 19:33:10,668 __main__ recognize 47  : Recognized person with id 0 and distance 22.752328872680664
+INFO       2024-03-19 19:33:10,908 __main__ recognize 47  : Recognized person with id 3 and distance 21.666046142578125
+INFO       2024-03-19 19:33:11,146 __main__ recognize 47  : Recognized person with id 3 and distance 22.21552848815918
+INFO       2024-03-19 19:33:11,384 __main__ recognize 47  : Recognized person with id 3 and distance 21.176776885986328
+INFO       2024-03-19 19:33:11,624 __main__ recognize 47  : Recognized person with id 3 and distance 20.761085510253906
+INFO       2024-03-19 19:33:11,863 __main__ recognize 47  : Recognized person with id 3 and distance 21.332752227783203
+INFO       2024-03-19 19:33:12,104 __main__ recognize 47  : Recognized person with id 3 and distance 20.220033645629883
+INFO       2024-03-19 19:33:12,331 __main__ recognize 47  : Recognized person with id 3 and distance 19.455095291137695
+INFO       2024-03-19 19:33:12,572 __main__ recognize 47  : Recognized person with id 3 and distance 19.721378326416016
+INFO       2024-03-19 19:33:12,812 __main__ recognize 47  : Recognized person with id 3 and distance 20.497854232788086
+INFO       2024-03-19 19:33:13,054 __main__ recognize 47  : Recognized person with id 3 and distance 20.971973419189453
+INFO       2024-03-19 19:33:13,293 __main__ recognize 47  : Recognized person with id 3 and distance 19.346988677978516
+INFO       2024-03-19 19:33:13,534 __main__ recognize 47  : Recognized person with id 3 and distance 19.936138153076172
+INFO       2024-03-19 19:33:13,773 __main__ recognize 47  : Recognized person with id 3 and distance 20.893468856811523
+INFO       2024-03-19 19:33:14,011 __main__ recognize 47  : Recognized person with id 3 and distance 18.808879852294922
+INFO       2024-03-19 19:33:14,257 __main__ recognize 47  : Recognized person with id 3 and distance 20.456132888793945
+INFO       2024-03-19 19:33:14,512 __main__ recognize 47  : Recognized person with id 3 and distance 19.906513214111328
+INFO       2024-03-19 19:33:14,768 __main__ recognize 47  : Recognized person with id 3 and distance 19.93376350402832
+INFO       2024-03-19 19:33:15,024 __main__ recognize 47  : Recognized person with id 3 and distance 18.848543167114258
+INFO       2024-04-17 14:55:23,872 __main__ <module> 68  : Recognizer service is starting...
+INFO       2024-04-17 14:55:23,878 pika.adapters.utils.connection_workflow start 179 : Pika version 1.3.2 connecting to ('127.0.0.1', 5672)
+INFO       2024-04-17 14:55:23,879 pika.adapters.utils.io_services_utils _on_writable 345 : Socket connected: <socket.socket fd=8, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 52950), raddr=('127.0.0.1', 5672)>
+INFO       2024-04-17 14:55:23,880 pika.adapters.utils.connection_workflow _on_transport_establishment_done 428 : Streaming transport linked up: (<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x76a8e94cdf30>, _StreamingProtocolShim: <SelectConnection PROTOCOL transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x76a8e94cdf30> params=<ConnectionParameters host=localhost port=5672 virtual_host=/ ssl=False>>).
+INFO       2024-04-17 14:55:23,884 pika.adapters.utils.connection_workflow _report_completion_and_cleanup 293 : AMQPConnector - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x76a8e94cdf30> params=<ConnectionParameters host=localhost port=5672 virtual_host=/ ssl=False>>
+INFO       2024-04-17 14:55:23,885 pika.adapters.utils.connection_workflow _report_completion_and_cleanup 725 : AMQPConnectionWorkflow - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x76a8e94cdf30> params=<ConnectionParameters host=localhost port=5672 virtual_host=/ ssl=False>>
+INFO       2024-04-17 14:55:23,885 pika.adapters.blocking_connection _create_connection 453 : Connection workflow succeeded: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x76a8e94cdf30> params=<ConnectionParameters host=localhost port=5672 virtual_host=/ ssl=False>>
+INFO       2024-04-17 14:55:23,885 pika.adapters.blocking_connection __init__ 1264: Created channel=1
+INFO       2024-04-17 14:55:28,901 __main__ <module> 85  : Connection established.
+INFO       2024-04-17 14:59:43,206 __main__ recognize 47  : Recognized person with id 0 and distance 22.359159469604492
+INFO       2024-04-17 14:59:43,465 __main__ recognize 47  : Recognized person with id 0 and distance 22.52400779724121
+INFO       2024-04-17 14:59:43,717 __main__ recognize 47  : Recognized person with id 0 and distance 22.54676628112793
+INFO       2024-04-17 14:59:43,970 __main__ recognize 47  : Recognized person with id 0 and distance 22.461496353149414
+INFO       2024-04-17 14:59:44,216 __main__ recognize 47  : Recognized person with id 0 and distance 22.59062957763672
+INFO       2024-04-17 14:59:44,456 __main__ recognize 47  : Recognized person with id 3 and distance 21.679473876953125
+INFO       2024-04-17 14:59:44,711 __main__ recognize 47  : Recognized person with id 3 and distance 21.818267822265625
+INFO       2024-04-17 14:59:44,971 __main__ recognize 47  : Recognized person with id 3 and distance 20.401931762695312
+INFO       2024-04-17 14:59:45,206 __main__ recognize 47  : Recognized person with id 3 and distance 21.454837799072266
+INFO       2024-04-17 14:59:45,460 __main__ recognize 47  : Recognized person with id 3 and distance 21.764551162719727
+INFO       2024-04-17 14:59:45,696 __main__ recognize 47  : Recognized person with id 3 and distance 22.885114669799805
+INFO       2024-04-17 14:59:45,943 __main__ recognize 47  : Recognized person with id 3 and distance 22.122554779052734
+INFO       2024-04-17 14:59:46,191 __main__ recognize 47  : Recognized person with id 3 and distance 23.90233612060547
+INFO       2024-04-17 14:59:46,441 __main__ recognize 47  : Recognized person with id 0 and distance 22.423505783081055
+INFO       2024-04-17 14:59:46,685 __main__ recognize 47  : Recognized person with id 0 and distance 22.171245574951172
+INFO       2024-04-17 14:59:46,935 __main__ recognize 47  : Recognized person with id 3 and distance 19.995948791503906
+INFO       2024-04-17 14:59:47,182 __main__ recognize 47  : Recognized person with id 3 and distance 22.604488372802734
+INFO       2024-04-17 14:59:47,436 __main__ recognize 47  : Recognized person with id 3 and distance 22.68301773071289
+INFO       2024-04-17 14:59:47,684 __main__ recognize 47  : Recognized person with id 3 and distance 23.39890480041504
+INFO       2024-04-17 14:59:47,925 __main__ recognize 47  : Recognized person with id 3 and distance 22.743074417114258
+INFO       2024-04-17 14:59:48,174 __main__ recognize 47  : Recognized person with id 3 and distance 22.740873336791992
+INFO       2024-04-17 14:59:48,425 __main__ recognize 47  : Recognized person with id 3 and distance 21.58321762084961
+INFO       2024-04-17 14:59:48,677 __main__ recognize 47  : Recognized person with id 3 and distance 22.103580474853516
+INFO       2024-04-17 14:59:48,925 __main__ recognize 47  : Recognized person with id 3 and distance 21.44219207763672
+INFO       2024-04-17 14:59:49,166 __main__ recognize 47  : Recognized person with id 3 and distance 20.870697021484375
+INFO       2024-04-17 14:59:49,423 __main__ recognize 47  : Recognized person with id 3 and distance 22.791414260864258
+INFO       2024-04-17 14:59:49,664 __main__ recognize 47  : Recognized person with id 3 and distance 21.004634857177734
+INFO       2024-04-17 14:59:49,903 __main__ recognize 47  : Recognized person with id 3 and distance 22.71990203857422
+INFO       2024-04-17 14:59:50,139 __main__ recognize 47  : Recognized person with id 3 and distance 19.884130477905273
+INFO       2024-04-17 14:59:50,379 __main__ recognize 47  : Recognized person with id 3 and distance 20.80514907836914
+INFO       2024-04-17 14:59:50,635 __main__ recognize 47  : Recognized person with id 3 and distance 20.64179039001465
+INFO       2024-04-17 14:59:50,885 __main__ recognize 47  : Recognized person with id 3 and distance 20.619001388549805
+INFO       2024-04-17 14:59:51,144 __main__ recognize 47  : Recognized person with id 3 and distance 20.662206649780273
+INFO       2024-04-17 14:59:51,379 __main__ recognize 47  : Recognized person with id 3 and distance 20.81501579284668
+INFO       2024-04-17 14:59:51,624 __main__ recognize 47  : Recognized person with id 3 and distance 21.670759201049805
+INFO       2024-04-17 14:59:51,861 __main__ recognize 47  : Recognized person with id 3 and distance 22.499460220336914
+INFO       2024-04-17 14:59:52,099 __main__ recognize 47  : Recognized person with id 3 and distance 23.405616760253906
+INFO       2024-04-17 14:59:52,349 __main__ recognize 47  : Recognized person with id 3 and distance 23.139978408813477
+INFO       2024-04-17 14:59:52,595 __main__ recognize 47  : Recognized person with id 3 and distance 21.80358123779297
+INFO       2024-04-17 14:59:52,851 __main__ recognize 47  : Recognized person with id 3 and distance 23.09999656677246
+INFO       2024-04-17 14:59:53,099 __main__ recognize 47  : Recognized person with id 3 and distance 24.161401748657227
+INFO       2024-04-17 14:59:53,352 __main__ recognize 47  : Recognized person with id 3 and distance 22.270782470703125
+INFO       2024-04-17 14:59:53,584 __main__ recognize 47  : Recognized person with id 3 and distance 22.32208251953125
+INFO       2024-04-17 14:59:53,831 __main__ recognize 47  : Recognized person with id 3 and distance 23.21142578125
+INFO       2024-04-17 14:59:54,092 __main__ recognize 47  : Recognized person with id 3 and distance 23.964397430419922
+INFO       2024-04-17 14:59:54,330 __main__ recognize 47  : Recognized person with id 3 and distance 23.26426124572754
+INFO       2024-04-17 14:59:54,569 __main__ recognize 47  : Recognized person with id 3 and distance 23.127893447875977
+INFO       2024-04-17 14:59:54,820 __main__ recognize 47  : Recognized person with id 3 and distance 22.12859535217285
+INFO       2024-04-17 14:59:55,066 __main__ recognize 47  : Recognized person with id 3 and distance 21.434772491455078
+INFO       2024-04-17 14:59:55,319 __main__ recognize 47  : Recognized person with id 3 and distance 22.213748931884766
+INFO       2024-04-17 14:59:55,585 __main__ recognize 47  : Recognized person with id 3 and distance 21.197669982910156
+INFO       2024-04-17 14:59:55,833 __main__ recognize 47  : Recognized person with id 3 and distance 23.763193130493164
+INFO       2024-04-17 14:59:56,093 __main__ recognize 47  : Recognized person with id 3 and distance 22.519222259521484
+INFO       2024-04-17 14:59:56,337 __main__ recognize 47  : Recognized person with id 3 and distance 23.18564224243164
+INFO       2024-04-17 14:59:56,578 __main__ recognize 47  : Recognized person with id 3 and distance 22.2816104888916
+INFO       2024-04-17 14:59:56,836 __main__ recognize 47  : Recognized person with id 3 and distance 23.313919067382812
+INFO       2024-04-17 14:59:57,076 __main__ recognize 47  : Recognized person with id 3 and distance 20.57530975341797
+INFO       2024-04-17 14:59:57,319 __main__ recognize 47  : Recognized person with id 3 and distance 20.87506866455078
+INFO       2024-04-17 14:59:57,575 __main__ recognize 47  : Recognized person with id 3 and distance 21.361751556396484
+INFO       2024-04-17 14:59:57,828 __main__ recognize 47  : Recognized person with id 3 and distance 21.731380462646484
+INFO       2024-04-17 14:59:58,066 __main__ recognize 47  : Recognized person with id 3 and distance 21.754499435424805
+INFO       2024-04-17 15:02:23,349 __main__ recognize 47  : Recognized person with id 3 and distance 22.277620315551758
+INFO       2024-04-17 15:02:23,588 __main__ recognize 47  : Recognized person with id 3 and distance 21.128042221069336
+INFO       2024-04-17 15:02:23,819 __main__ recognize 47  : Recognized person with id 3 and distance 24.075977325439453
+INFO       2024-04-17 15:02:24,045 __main__ recognize 47  : Recognized person with id 3 and distance 24.550931930541992
+INFO       2024-04-17 15:02:24,273 __main__ recognize 47  : Recognized person with id 3 and distance 22.13703155517578
+INFO       2024-04-17 15:02:24,503 __main__ recognize 47  : Recognized person with id 3 and distance 22.247095108032227
+INFO       2024-04-17 15:02:24,729 __main__ recognize 47  : Recognized person with id 3 and distance 23.025440216064453
+INFO       2024-04-17 15:02:24,967 __main__ recognize 47  : Recognized person with id 3 and distance 23.078975677490234
+INFO       2024-04-17 15:02:25,192 __main__ recognize 47  : Recognized person with id 3 and distance 22.785823822021484
+INFO       2024-04-17 15:02:25,424 __main__ recognize 47  : Recognized person with id 3 and distance 22.066070556640625
+INFO       2024-04-17 15:02:25,651 __main__ recognize 47  : Recognized person with id 3 and distance 23.039243698120117
+INFO       2024-04-17 15:02:25,879 __main__ recognize 47  : Recognized person with id 3 and distance 23.360462188720703
+INFO       2024-04-17 15:02:26,114 __main__ recognize 47  : Recognized person with id 3 and distance 21.503292083740234
+INFO       2024-04-17 15:02:26,345 __main__ recognize 47  : Recognized person with id 3 and distance 17.510311126708984
+INFO       2024-04-17 15:02:26,567 __main__ recognize 47  : Recognized person with id 3 and distance 16.556848526000977
+INFO       2024-04-17 15:02:26,793 __main__ recognize 47  : Recognized person with id 3 and distance 17.83201789855957
+INFO       2024-04-17 15:02:27,025 __main__ recognize 47  : Recognized person with id 3 and distance 16.365306854248047
+INFO       2024-04-17 15:02:27,255 __main__ recognize 47  : Recognized person with id 3 and distance 17.345699310302734
+INFO       2024-04-17 15:02:27,493 __main__ recognize 47  : Recognized person with id 3 and distance 17.294391632080078
+INFO       2024-04-17 15:02:27,723 __main__ recognize 47  : Recognized person with id 3 and distance 18.095294952392578
+INFO       2024-04-17 15:02:27,947 __main__ recognize 47  : Recognized person with id 3 and distance 18.218599319458008
+INFO       2024-04-17 15:02:28,169 __main__ recognize 47  : Recognized person with id 3 and distance 16.997711181640625
+INFO       2024-04-17 15:02:28,392 __main__ recognize 47  : Recognized person with id 3 and distance 18.97878646850586
+INFO       2024-04-17 15:02:28,624 __main__ recognize 47  : Recognized person with id 3 and distance 17.731971740722656
+INFO       2024-04-17 15:02:28,853 __main__ recognize 47  : Recognized person with id 3 and distance 17.70026969909668
+INFO       2024-04-17 15:02:29,084 __main__ recognize 47  : Recognized person with id 3 and distance 18.439128875732422
+INFO       2024-04-17 15:02:29,313 __main__ recognize 47  : Recognized person with id 3 and distance 18.338979721069336
+INFO       2024-04-17 15:02:29,545 __main__ recognize 47  : Recognized person with id 3 and distance 17.443208694458008
+INFO       2024-04-17 15:02:29,775 __main__ recognize 47  : Recognized person with id 3 and distance 18.38289451599121
+INFO       2024-04-17 15:02:30,004 __main__ recognize 47  : Recognized person with id 3 and distance 17.122190475463867
+INFO       2024-04-17 15:02:30,233 __main__ recognize 47  : Recognized person with id 3 and distance 18.340656280517578
+INFO       2024-04-17 15:02:30,459 __main__ recognize 47  : Recognized person with id 3 and distance 18.521249771118164
+INFO       2024-04-17 15:02:30,685 __main__ recognize 47  : Recognized person with id 3 and distance 17.84333610534668
+INFO       2024-04-17 15:02:30,918 __main__ recognize 47  : Recognized person with id 3 and distance 18.830175399780273
+INFO       2024-04-17 15:02:31,152 __main__ recognize 47  : Recognized person with id 3 and distance 17.88463592529297
+INFO       2024-04-17 15:02:31,388 __main__ recognize 47  : Recognized person with id 3 and distance 18.01900863647461
+INFO       2024-04-17 15:02:31,624 __main__ recognize 47  : Recognized person with id 3 and distance 18.702295303344727
+INFO       2024-04-17 15:02:31,861 __main__ recognize 47  : Recognized person with id 3 and distance 16.48048210144043
+INFO       2024-04-17 15:02:32,099 __main__ recognize 47  : Recognized person with id 3 and distance 17.97283935546875
+INFO       2024-04-17 15:02:32,330 __main__ recognize 47  : Recognized person with id 3 and distance 17.480024337768555
+INFO       2024-04-17 15:02:32,569 __main__ recognize 47  : Recognized person with id 3 and distance 16.682205200195312
+INFO       2024-04-17 15:02:32,806 __main__ recognize 47  : Recognized person with id 3 and distance 18.355350494384766
+INFO       2024-04-17 15:02:33,035 __main__ recognize 47  : Recognized person with id 3 and distance 19.857955932617188
+INFO       2024-04-17 15:02:33,268 __main__ recognize 47  : Recognized person with id 3 and distance 18.66963768005371
+INFO       2024-04-17 15:02:33,501 __main__ recognize 47  : Recognized person with id 3 and distance 19.116979598999023
+INFO       2024-04-17 15:02:33,735 __main__ recognize 47  : Recognized person with id 3 and distance 18.23517608642578
+INFO       2024-04-17 15:02:33,971 __main__ recognize 47  : Recognized person with id 3 and distance 18.401901245117188
+INFO       2024-04-17 15:02:34,207 __main__ recognize 47  : Recognized person with id 3 and distance 18.65962028503418
+INFO       2024-04-17 15:02:34,441 __main__ recognize 47  : Recognized person with id 3 and distance 18.150602340698242
+INFO       2024-04-17 15:02:34,673 __main__ recognize 47  : Recognized person with id 3 and distance 18.188922882080078
+INFO       2024-04-17 15:02:34,909 __main__ recognize 47  : Recognized person with id 3 and distance 17.836524963378906
+INFO       2024-04-17 15:02:35,146 __main__ recognize 47  : Recognized person with id 3 and distance 19.167001724243164
+INFO       2024-04-17 15:02:35,380 __main__ recognize 47  : Recognized person with id 3 and distance 18.704326629638672
+INFO       2024-04-17 15:02:35,615 __main__ recognize 47  : Recognized person with id 3 and distance 16.706825256347656
+INFO       2024-04-17 15:02:35,850 __main__ recognize 47  : Recognized person with id 3 and distance 18.05051612854004
+INFO       2024-04-17 15:02:36,087 __main__ recognize 47  : Recognized person with id 3 and distance 16.982242584228516
+INFO       2024-04-17 15:02:36,324 __main__ recognize 47  : Recognized person with id 3 and distance 19.44588851928711
+INFO       2024-04-17 15:02:36,558 __main__ recognize 47  : Recognized person with id 3 and distance 18.955589294433594
+INFO       2024-04-17 15:02:36,785 __main__ recognize 47  : Recognized person with id 3 and distance 18.049028396606445
+INFO       2024-04-17 15:02:37,009 __main__ recognize 47  : Recognized person with id 3 and distance 18.17180061340332
+INFO       2024-04-17 15:02:37,243 __main__ recognize 47  : Recognized person with id 3 and distance 19.10275650024414
+INFO       2024-04-17 15:02:37,480 __main__ recognize 47  : Recognized person with id 3 and distance 18.49773597717285
+INFO       2024-04-17 15:02:37,713 __main__ recognize 47  : Recognized person with id 3 and distance 18.06303596496582
+INFO       2024-04-17 15:02:37,945 __main__ recognize 47  : Recognized person with id 3 and distance 19.099220275878906
+INFO       2024-04-17 15:02:38,180 __main__ recognize 47  : Recognized person with id 3 and distance 19.01213264465332
+INFO       2024-04-17 15:02:38,406 __main__ recognize 47  : Recognized person with id 3 and distance 18.3248233795166
+INFO       2024-04-17 15:02:38,640 __main__ recognize 47  : Recognized person with id 3 and distance 23.01849365234375
+INFO       2024-04-17 15:02:38,863 __main__ recognize 47  : Recognized person with id 3 and distance 19.71553611755371
+INFO       2024-04-17 15:02:39,090 __main__ recognize 47  : Recognized person with id 3 and distance 21.364139556884766
+INFO       2024-04-17 15:02:39,314 __main__ recognize 47  : Recognized person with id 3 and distance 21.47010040283203
+INFO       2024-04-17 15:02:39,542 __main__ recognize 47  : Recognized person with id 3 and distance 18.476181030273438
+INFO       2024-04-17 15:02:39,768 __main__ recognize 47  : Recognized person with id 3 and distance 20.95839500427246
+INFO       2024-04-17 15:02:39,996 __main__ recognize 47  : Recognized person with id 3 and distance 20.129192352294922
+INFO       2024-04-17 15:02:40,224 __main__ recognize 47  : Recognized person with id 3 and distance 20.646316528320312
+INFO       2024-04-17 15:02:40,452 __main__ recognize 47  : Recognized person with id 3 and distance 17.246246337890625
+INFO       2024-04-17 15:02:40,677 __main__ recognize 47  : Recognized person with id 3 and distance 19.351943969726562
+INFO       2024-04-17 15:02:40,905 __main__ recognize 47  : Recognized person with id 3 and distance 19.579631805419922
+INFO       2024-04-17 15:02:41,150 __main__ recognize 47  : Recognized person with id 3 and distance 19.597440719604492
+INFO       2024-04-17 15:02:41,386 __main__ recognize 47  : Recognized person with id 3 and distance 19.310585021972656
+INFO       2024-04-17 15:02:41,614 __main__ recognize 47  : Recognized person with id 3 and distance 19.839078903198242
+INFO       2024-04-17 15:02:41,850 __main__ recognize 47  : Recognized person with id 3 and distance 19.88503074645996
+INFO       2024-04-17 15:02:42,081 __main__ recognize 47  : Recognized person with id 3 and distance 21.60841941833496
+INFO       2024-04-17 15:02:42,318 __main__ recognize 47  : Recognized person with id 3 and distance 18.522308349609375
+INFO       2024-04-17 15:02:42,553 __main__ recognize 47  : Recognized person with id 3 and distance 20.18857765197754
+INFO       2024-04-17 15:02:42,782 __main__ recognize 47  : Recognized person with id 3 and distance 20.39617156982422
+INFO       2024-04-17 18:55:50,534 __main__ recognize 47  : Recognized person with id 3 and distance 19.06566619873047
+INFO       2024-04-17 18:55:50,788 __main__ recognize 47  : Recognized person with id 3 and distance 17.23107147216797
+INFO       2024-04-17 18:55:51,037 __main__ recognize 47  : Recognized person with id 3 and distance 18.72121238708496
+INFO       2024-04-17 18:55:51,304 __main__ recognize 47  : Recognized person with id 3 and distance 18.621490478515625
+INFO       2024-04-17 18:55:51,552 __main__ recognize 47  : Recognized person with id 3 and distance 19.29133415222168
+INFO       2024-04-17 18:55:51,794 __main__ recognize 47  : Recognized person with id 3 and distance 17.70268440246582
+INFO       2024-04-17 18:55:52,036 __main__ recognize 47  : Recognized person with id 3 and distance 18.868776321411133
+INFO       2024-04-17 18:55:52,277 __main__ recognize 47  : Recognized person with id 3 and distance 15.290412902832031
+INFO       2024-04-17 18:55:52,524 __main__ recognize 47  : Recognized person with id 3 and distance 16.327228546142578
+INFO       2024-04-17 18:55:52,785 __main__ recognize 47  : Recognized person with id 3 and distance 16.67988395690918
+INFO       2024-04-17 18:55:53,037 __main__ recognize 47  : Recognized person with id 3 and distance 16.56026268005371
+INFO       2024-04-17 18:55:53,278 __main__ recognize 47  : Recognized person with id 3 and distance 17.541839599609375
+INFO       2024-04-17 18:55:53,520 __main__ recognize 47  : Recognized person with id 3 and distance 16.16450309753418
+INFO       2024-04-17 18:55:53,766 __main__ recognize 47  : Recognized person with id 3 and distance 16.816471099853516
+INFO       2024-04-17 18:55:54,010 __main__ recognize 47  : Recognized person with id 3 and distance 17.086708068847656
+INFO       2024-04-17 18:55:54,255 __main__ recognize 47  : Recognized person with id 3 and distance 17.4269962310791
+INFO       2024-04-17 18:55:54,497 __main__ recognize 47  : Recognized person with id 3 and distance 17.171049118041992
+INFO       2024-04-17 18:55:54,738 __main__ recognize 47  : Recognized person with id 3 and distance 16.300912857055664
+INFO       2024-04-17 18:55:54,981 __main__ recognize 47  : Recognized person with id 3 and distance 15.8547945022583
+INFO       2024-04-17 18:55:55,240 __main__ recognize 47  : Recognized person with id 3 and distance 16.04002571105957
+INFO       2024-04-17 18:55:55,488 __main__ recognize 47  : Recognized person with id 3 and distance 18.11513900756836
+INFO       2024-04-17 18:55:55,736 __main__ recognize 47  : Recognized person with id 3 and distance 15.238873481750488
+INFO       2024-04-17 18:55:55,997 __main__ recognize 47  : Recognized person with id 3 and distance 15.48730754852295
+INFO       2024-04-17 18:55:56,257 __main__ recognize 47  : Recognized person with id 3 and distance 18.26038360595703
+INFO       2024-04-17 18:55:56,502 __main__ recognize 47  : Recognized person with id 3 and distance 17.835031509399414
+INFO       2024-04-18 09:26:37,905 pika.adapters.utils.io_services_utils abort 731 : Aborting transport connection: state=1; <socket.socket fd=8, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 52950), raddr=('127.0.0.1', 5672)>
+INFO       2024-04-18 09:26:37,905 pika.adapters.utils.io_services_utils _initiate_abort 904 : _AsyncTransportBase._initate_abort(): Initiating abrupt asynchronous transport shutdown: state=1; error=None; <socket.socket fd=8, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 52950), raddr=('127.0.0.1', 5672)>
+INFO       2024-04-18 09:26:37,905 pika.adapters.utils.io_services_utils _deactivate 869 : Deactivating transport: state=1; <socket.socket fd=8, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 52950), raddr=('127.0.0.1', 5672)>
+INFO       2024-04-18 09:26:37,905 pika.connection _on_stream_terminated 2017: AMQP stack terminated, failed to connect, or aborted: opened=True, error-arg=None; pending-error=ConnectionClosedByBroker: (320) "CONNECTION_FORCED - broker forced connection closure with reason 'shutdown'"
+INFO       2024-04-18 09:26:37,905 pika.connection _on_stream_terminated 2086: Stack terminated due to ConnectionClosedByBroker: (320) "CONNECTION_FORCED - broker forced connection closure with reason 'shutdown'"
+INFO       2024-04-18 09:26:37,905 pika.adapters.utils.io_services_utils _close_and_finalize 882 : Closing transport socket and unlinking: state=3; <socket.socket fd=8, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('127.0.0.1', 52950), raddr=('127.0.0.1', 5672)>
+ERROR      2024-04-18 09:26:37,905 pika.adapters.blocking_connection _flush_output 521 : Unexpected connection close detected: ConnectionClosedByBroker: (320) "CONNECTION_FORCED - broker forced connection closure with reason 'shutdown'"

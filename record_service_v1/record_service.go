@@ -10,6 +10,7 @@ import (
 	"syscall"
 	"time"
 
+	"github.com/redis/go-redis/v9"
 	"github.com/streadway/amqp"
 )
 
@@ -28,15 +29,15 @@ func init() {
 }
 
 func main() {
+	close_chan := make(chan string)
+	ConnectToDb(close_chan)
+	InitCache(0, close_chan)
 
 	c, err := NewConsumer(*uri, *exchange, *exchangeType, *queue, *bindingKey, *consumerTag)
 	if err != nil {
 		log.Fatalf("%s", err)
 	}
 
-	close_chan := make(chan string)
-	ConnectToDb(close_chan)
-	InitCache(0, close_chan)
 
 	if *lifetime > 0 {
 		log.Printf("running for %s", *lifetime)
@@ -135,7 +136,7 @@ func NewConsumer(amqpURI, exchange, exchangeType, queueName, key, ctag string) (
 	deliveries, err := c.channel.Consume(
 		queue.Name, // name
 		c.tag,      // consumerTag,
-		false,      // noAck
+		true,      // noAck
 		false,      // exclusive
 		false,      // noLocal
 		false,      // noWait
@@ -173,23 +174,31 @@ func handle(deliveries <-chan amqp.Delivery, done chan error) {
 		if err != nil {
 			log.Printf("Failed to unmarshal JSON: %v\n", err)
 			done <- err
+			continue
 		}
 
-		last_seen_time := cache_get(body.Person_id)
-		if last_seen_time != nil {
+		last_seen_time, err := Cache_get(body.Person_id)
+		if err == nil {
 			log.Printf("student was last seen %s\n", last_seen_time.Format(time.RFC3339))
-			d.Ack(true)
 			done <- nil
+			continue
 		}
+
+		if err != redis.Nil {
+			log.Panic(err)
+		}
+
+		log.Println("Student not seen recently.")
 
 		occasion_id, err := GetCourseOccasion(&body)
 		if err != nil {
 			log.Println(err)
-			d.Ack(false)
-			done <- nil
+			done <- err
+			continue
 		}
+
 		go func() {
-			cache_set(body.Person_id, body.Timestamp)
+			Cache_set(body.Person_id, body.Timestamp)
 
 			err := InsertRecord(&body, occasion_id)
 			if err != nil {
@@ -197,8 +206,6 @@ func handle(deliveries <-chan amqp.Delivery, done chan error) {
 				done <- err
 			}
 		}()
-
-		d.Ack(false)
 	}
 	log.Printf("handle: deliveries channel closed")
 	done <- nil
