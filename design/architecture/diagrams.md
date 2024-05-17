@@ -160,6 +160,7 @@ sequenceDiagram
 # Class diagram 3
 
 ```mermaid
+classDiagram
 class record_service{
     +uri
     +exchange
@@ -211,5 +212,79 @@ record_service ..> cache
 ---
 # Sequence diagram 3
 ``` mermaid
+sequenceDiagram
+    participant Consumer
+    participant RabbitMQ
+    participant main
+    participant cache
+    participant Redis
+    participant db_util
+    participant Postgres
+    
+
+
+    main -->> main: Parse json RabbitMQ flags
+    main ->>+ db_util: Initialize db connection
+    critical Connect
+        db_util ->> Postgres: 
+        Postgres -->> db_util: 
+    end
+    db_util -->> db_util: Start shutdown handler
+    db_util -->>- main: 
+    main ->>+ cache: Init cache
+    critical Connect
+        cache ->> Redis: 
+        Redis -->> cache: 
+    end
+    cache -->> cache: Start shutdown handler and purge job
+    cache -->>- main: 
+    main ->>+ main: Init consumer
+    critical Connect
+        main ->>+ RabbitMQ: Connect
+        main ->> RabbitMQ: Start channel
+        main ->> RabbitMQ: Exchange and queue
+        RabbitMQ -->>- main: OK
+    end
+    main ->>+ Consumer: Start consuming
+    main ->>- main: Handle shutdown
+    loop consumer
+        Consumer -->> Consumer: Wait for message
+        Consumer -->> Consumer: Parse body
+        Consumer ->>+ cache: Get student last seen
+        cache ->> Redis: Get
+        Redis -->> cache: 
+        cache -->>- Consumer: 
+        alt seen
+            Consumer ->> Consumer: Next iteration
+        else not seen
+            Consumer ->>+ db_util: Validate occasion
+            db_util ->> Postgres: Execute query
+            Postgres -->> db_util: 
+            db_util -->>- Consumer: 
+            alt invalid
+                Consumer ->> Consumer: Next iteration
+            else valid
+                par Concurrent
+                    Consumer ->>+ cache: Save seen time
+                    cache ->> Redis: Save
+                    Redis -->> cache: 
+                    cache -->>- Consumer: 
+                    Consumer ->>+ db_util: Save record
+                    db_util ->> Postgres: Save
+                    Postgres -->> db_util: 
+                    db_util -->>- Consumer: 
+                and
+                    Consumer ->> Consumer: Next iteration
+                end
+            end
+        end
+    end
+    Consumer -->>- Consumer: Handle shutdown
+    Consumer ->>+ main: shutdown
+    main -x db_util: notify shutdown
+    main -x cache: notify shutdown
+    main --x- main: Log shutdown reasons
+
+
 
 ```

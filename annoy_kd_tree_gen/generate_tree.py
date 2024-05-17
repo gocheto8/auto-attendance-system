@@ -24,7 +24,7 @@ def get_face_embedding(image_path):
     img = cv2.imread(image_path)
     
 
-    return DeepFace.represent(img, model_name='Facenet512', detector_backend='retinaface')[0]["embedding"]
+    return DeepFace.represent(img, model_name='Facenet512', detector_backend='retinaface')
     
 
 def build_annoy_index(directory, output_file):

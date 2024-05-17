@@ -1,6 +1,10 @@
 package main
 
+import _ "net/http/pprof"
+
+
 import (
+	"net/http"
 	"encoding/json"
 	"flag"
 	"fmt"
@@ -26,6 +30,9 @@ var (
 
 func init() {
 	flag.Parse()
+	go func() {
+		http.ListenAndServe(":1234", nil)
+	}()
 }
 
 func main() {
@@ -37,7 +44,6 @@ func main() {
 	if err != nil {
 		log.Fatalf("%s", err)
 	}
-
 
 	if *lifetime > 0 {
 		log.Printf("running for %s", *lifetime)
@@ -136,7 +142,7 @@ func NewConsumer(amqpURI, exchange, exchangeType, queueName, key, ctag string) (
 	deliveries, err := c.channel.Consume(
 		queue.Name, // name
 		c.tag,      // consumerTag,
-		true,      // noAck
+		true,       // noAck
 		false,      // exclusive
 		false,      // noLocal
 		false,      // noWait
