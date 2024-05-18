@@ -1,6 +1,6 @@
 ## Demo
-- [ ] Create tool to fill the db automatically
-- [ ] Create a tool to generate the kd-tree
+- [x] Create tool to fill the db automatically
+- [x] Create a tool to generate the kd-tree
 - [ ] Run a 30 second clip trough the program for demo: 1 wanted, 1 unwanted, 1 unknown
 - [ ] Record logs, and db instances to monitor demo
 

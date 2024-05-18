@@ -1,3 +1,4 @@
 .docker-data/*
 .vscode
 .venv
+external_tools
