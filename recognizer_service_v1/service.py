@@ -22,7 +22,7 @@ parameters = pika.ConnectionParameters(
 
 """Recognizer settings"""
 os.chdir("./recognizer_service_v1")
-TREE_FILE = "./resources/face_embeddings_index.ann"
+TREE_FILE = "./resources/tree_2024-05-19_14:23:20.229994.ann"
 METRIC = "euclidean"
 VECTOR_SIZE = 512
 MAX_DIST = 17
