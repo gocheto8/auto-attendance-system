@@ -27,7 +27,6 @@ METRIC = "euclidean"
 VECTOR_SIZE = 512
 MAX_DIST = 17
 
-
 """logger settings"""
 LOG_FORMAT = (
     "%(levelname)-10s %(asctime)s %(name)s %(funcName)s %(lineno)-4d: %(message)s"

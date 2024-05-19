@@ -1,14 +1,12 @@
 package main
 
-import _ "net/http/pprof"
-
-
 import (
-	"net/http"
 	"encoding/json"
 	"flag"
 	"fmt"
 	"log"
+	"net/http"
+	_ "net/http/pprof"
 	"os"
 	"os/signal"
 	"syscall"
@@ -179,14 +177,12 @@ func handle(deliveries <-chan amqp.Delivery, done chan error) {
 		err := json.Unmarshal(d.Body, &body)
 		if err != nil {
 			log.Printf("Failed to unmarshal JSON: %v\n", err)
-			done <- err
 			continue
 		}
 
 		last_seen_time, err := Cache_get(body.Person_id)
 		if err == nil {
 			log.Printf("student was last seen %s\n", last_seen_time.Format(time.RFC3339))
-			done <- nil
 			continue
 		}
 
@@ -199,7 +195,6 @@ func handle(deliveries <-chan amqp.Delivery, done chan error) {
 		occasion_id, err := GetCourseOccasion(&body)
 		if err != nil {
 			log.Println(err)
-			done <- err
 			continue
 		}
 
@@ -209,7 +204,6 @@ func handle(deliveries <-chan amqp.Delivery, done chan error) {
 			err := InsertRecord(&body, occasion_id)
 			if err != nil {
 				log.Println(err)
-				done <- err
 			}
 		}()
 	}

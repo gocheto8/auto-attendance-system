@@ -19,12 +19,12 @@ if gpus:
         print(e)
 
 # cap = cv2.VideoCapture(0)
-cap = cv2.VideoCapture("./Diplomna_demo.avi")
+cap = cv2.VideoCapture("./Diplomna_demo.mp4")
 
 
 # NOTE for demo
-fourcc = cv2.VideoWriter.fourcc(*'XVID')
-out = cv2.VideoWriter('out.avi', fourcc, 30, (1280, 720))
+# fourcc = cv2.VideoWriter.fourcc(*'XVID')
+# out = cv2.VideoWriter('out.avi', fourcc, 30, (1280, 720))
 # NOTE end demo
 
 # DEVICE_ID = f'class{os. getpid()}'
@@ -59,14 +59,14 @@ while True:
             continue
         
         # NOTE This part of the code is strictly for the demo
-        area = embedding["facial_area"]
-        cv2.rectangle(
-            frame,
-            (area["x"], area["y"]),
-            (area["x"] + area["w"], area["y"] + area["h"]),
-            (0, 255, 0),
-            2,
-        )
+        # area = embedding["facial_area"]
+        # cv2.rectangle(
+        #     frame,
+        #     (area["x"], area["y"]),
+        #     (area["x"] + area["w"], area["y"] + area["h"]),
+        #     (0, 255, 0),
+        #     2,
+        # )
 
         
         # confidence_text = f"Conf: {confidence*100}%"
@@ -81,16 +81,16 @@ while True:
         # )
         #  NOTE EOF code for demo
         
-        # publish_embedding(embedding["embedding"])
+        publish_embedding(embedding["embedding"])
 
     # cv2.imshow("Webcam", frame)
     
     # NOTE for demo
-    out.write(frame)
+    # out.write(frame)
     
     if cv2.waitKey(1) & 0xFF == ord("q"):
         break
 
 cap.release()
-out.release()
+# out.release()
 cv2.destroyAllWindows()
