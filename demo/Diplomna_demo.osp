@@ -404,7 +404,7 @@
      "minor_version": "0",
      "vendor_id": "[0][0][0][0]"
     },
-    "path": "../../../Downloads/suits_uncut.mp4",
+    "path": "../../../../Downloads/suits_uncut.mp4",
     "pixel_format": 0,
     "pixel_ratio": {
      "den": 1,
@@ -653,68 +653,11 @@
    "file_id": "JXRCQGNACU",
    "title": "suits_uncut.mp4",
    "id": "PDVVWLLHVM",
-   "image": "@assets/thumbnail/JXRCQGNACU.png"
+   "image": "thumbnail/JXRCQGNACU.png"
   }
  ],
  "effects": [],
- "files": [
-  {
-   "acodec": "",
-   "audio_bit_rate": 0,
-   "audio_stream_index": -1,
-   "audio_timebase": {
-    "den": 1,
-    "num": 1
-   },
-   "channel_layout": 4,
-   "channels": 0,
-   "display_ratio": {
-    "den": 9,
-    "num": 16
-   },
-   "duration": 616.65771484375,
-   "file_size": "79746446",
-   "fps": {
-    "den": 1001,
-    "num": 24000
-   },
-   "has_audio": false,
-   "has_single_image": false,
-   "has_video": true,
-   "height": 1080,
-   "interlaced_frame": false,
-   "metadata": {
-    "compatible_brands": "iso6avc1mp41",
-    "creation_time": "2024-05-02T20:18:17.000000Z",
-    "handler_name": "ISO Media file produced by Google Inc.",
-    "language": "und",
-    "major_brand": "dash",
-    "minor_version": "0",
-    "vendor_id": "[0][0][0][0]"
-   },
-   "path": "../../../Downloads/suits_uncut.mp4",
-   "pixel_format": 0,
-   "pixel_ratio": {
-    "den": 1,
-    "num": 1
-   },
-   "sample_rate": 0,
-   "top_field_first": true,
-   "type": "FFmpegReader",
-   "vcodec": "h264",
-   "video_bit_rate": 129320,
-   "video_length": "14785",
-   "video_stream_index": 0,
-   "video_timebase": {
-    "den": 24000,
-    "num": 1
-   },
-   "width": 1920,
-   "media_type": "video",
-   "id": "JXRCQGNACU",
-   "image": "@assets/thumbnail/JXRCQGNACU.png"
-  }
- ],
+ "files": [],
  "duration": 300.0,
  "scale": 2.0337882636850444,
  "tick_pixels": 100,
@@ -1411,7 +1354,7 @@
      "file_id": "JXRCQGNACU",
      "title": "suits_uncut.mp4"
     },
-    "transaction": "79db6ecc-0a99-4957-a61b-60b34891c4cc"
+    "transaction": "dd3d63c8-f3d9-4ee4-b2f9-bed5298d77b8"
    },
    {
     "type": "update",
@@ -1420,7 +1363,7 @@
     ],
     "value": 35.14057131627471,
     "old_values": null,
-    "transaction": "638e5b98-7f16-415c-b7a0-ac8c5b721a44"
+    "transaction": "0abfea70-31f5-4ab2-a7ad-ee79f26560d7"
    },
    {
     "type": "insert",
@@ -2699,7 +2642,7 @@
       "title": "suits_uncut.mp4"
      }
     ],
-    "transaction": "551ac03c-867d-431f-9acc-db5e85c060d1"
+    "transaction": "7477fb02-e580-4264-a8e6-73435015bb84"
    },
    {
     "type": "update",
@@ -3351,7 +3294,7 @@
      "title": "suits_uncut.mp4",
      "id": "PDVVWLLHVM"
     },
-    "transaction": "551ac03c-867d-431f-9acc-db5e85c060d1"
+    "transaction": "fa63b651-bbc9-46f9-8586-367336b78483"
    },
    {
     "type": "update",
@@ -4003,7 +3946,7 @@
      "file_id": "JXRCQGNACU",
      "title": "suits_uncut.mp4"
     },
-    "transaction": "551ac03c-867d-431f-9acc-db5e85c060d1"
+    "transaction": "be103ba7-c339-4af9-bf52-8bfe88c32c13"
    },
    {
     "type": "insert",
@@ -5917,7 +5860,7 @@
       "id": "PDVVWLLHVM"
      }
     ],
-    "transaction": "c2f96a9e-344d-467d-a373-b6a6639315c1"
+    "transaction": "0348acee-2546-4106-afb8-ef1a2be06bcb"
    },
    {
     "type": "update",
@@ -6569,7 +6512,7 @@
      "title": "suits_uncut.mp4",
      "id": "PS85BKOS52"
     },
-    "transaction": "c2f96a9e-344d-467d-a373-b6a6639315c1"
+    "transaction": "aba7d4e4-35f5-4bf0-bee2-e4d6089bce32"
    },
    {
     "type": "update",
@@ -7221,7 +7164,7 @@
      "title": "suits_uncut.mp4",
      "id": "PDVVWLLHVM"
     },
-    "transaction": "c2f96a9e-344d-467d-a373-b6a6639315c1"
+    "transaction": "68b3c0a5-8087-42db-bbdc-18b775c9c749"
    },
    {
     "type": "insert",
@@ -9770,7 +9713,7 @@
       "id": "PS85BKOS52"
      }
     ],
-    "transaction": "b67d8ebe-278c-4151-b62f-c1faa5fa8be3"
+    "transaction": "81256c6c-1b0d-4c83-a2c5-8541ea8ae461"
    },
    {
     "type": "update",
@@ -10422,7 +10365,7 @@
      "title": "suits_uncut.mp4",
      "id": "9QDG2IRYY3"
     },
-    "transaction": "b67d8ebe-278c-4151-b62f-c1faa5fa8be3"
+    "transaction": "c5f861c5-768d-4777-8233-e093b14a1cbc"
    },
    {
     "type": "update",
@@ -11074,7 +11017,7 @@
      "title": "suits_uncut.mp4",
      "id": "PDVVWLLHVM"
     },
-    "transaction": "b67d8ebe-278c-4151-b62f-c1faa5fa8be3"
+    "transaction": "29a16777-d618-4367-af16-028343b82fa7"
    },
    {
     "type": "delete",
@@ -11720,7 +11663,7 @@
      "file_id": "JXRCQGNACU",
      "title": "suits_uncut.mp4"
     },
-    "transaction": "3c197085-e15a-4522-b89e-1d43aebec3ba"
+    "transaction": "a3a61d53-1c61-45a5-9db5-acfb81bf40b3"
    },
    {
     "type": "delete",
@@ -12366,7 +12309,7 @@
      "title": "suits_uncut.mp4",
      "id": "9QDG2IRYY3"
     },
-    "transaction": "9b27bb14-e3eb-46b3-8542-88d097e711a4"
+    "transaction": "36cf6e2d-6ca2-4610-8b2a-b2cd83938cf3"
    },
    {
     "type": "delete",
@@ -13012,7 +12955,7 @@
      "title": "suits_uncut.mp4",
      "id": "PS85BKOS52"
     },
-    "transaction": "3b35de73-2dd8-4537-a87f-6cfcb55f8932"
+    "transaction": "7df40e03-e4d2-4b06-b4e3-aed3ef144bc2"
    },
    {
     "type": "update",
@@ -13664,7 +13607,7 @@
      "title": "suits_uncut.mp4",
      "id": "PDVVWLLHVM"
     },
-    "transaction": "55298dd6-d92e-44d2-b12b-dd3ee97bfb45"
+    "transaction": "36c9905c-713d-4bd7-bddc-e1e9fa01a866"
    }
   ],
   "redo": []
